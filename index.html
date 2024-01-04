@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Calculadora de Juros Compostos</title>
+</head>
+<body>
+  <header>
+    Calculadora de Juros Compostos
+  </header>
+  <div class="container">
+    <div>
+      <h1 class="title">Calculadora de Juros Compostos</h1>
+      <p class="subtitle"> juros compostos crescem de forma exponencial, pois sua base de cálculo é sempre em cima do montante anterior. Faça esse cálculo financeiro de forma simples utilizando nossa calculadora!</p>
+    </div>
+    <div class="bloco">
+      <h3 class="title">Simulador de Juros Compostos</h3>
+      <div class="dados">
+        <div class="container_campo">
+          <label for="valorInicial">Valor inicial</label>
+          <div class="container_input">
+            <div class="moeda input_left">R$</div>
+            <input class="input_right mascaraDecimal" type="text" placeholder="0,00" id="valorInicial">
+          </div>
+        </div>
+        <div class="container_campo">
+          <label for="valorMensal">Valor mensal</label>
+          <div class="container_input">
+            <div class="moeda input_left">R$</div>
+            <input class="input_right mascaraDecimal" type="text" placeholder="0,00" id="valorMensal">
+          </div>
+        </div>
+        <div class="container_campo">
+          <label for="taxaDeJuros">Taxa de juros</label>
+          <div class="container_input">
+            <div class="moeda input_left">%</div>
+            <input class="input_center mascaraPorcentagem" min="0.01" type="text" id="taxaDeJuros" maxlength="7" value="1" required>
+            <select class="input_right" name="tipoJuros" id="tipoJuros">
+              <option value="mensal" selected>mensal</option>
+            </select>
+          </div>
+        </div>
+        <div class="container_campo">
+          <label for="periodo">Período</label>
+          <div class="container_input">
+            <input class="input_left" type="number" min="1" id="periodo" value="1" required>
+            <select class="input_right" name="tipoPeriodo" id="tipoPeriodo">
+              <option value="anual" selected>ano(s)</option>
+              <option value="mensal">mes(es)</option>
+            </select>
+          </div>
+        </div>        
+      </div>
+      <div class="actions">
+        <button class="btn-secondary" onclick="limpar()">Limpar</button>
+        <button class="btn-primary" onclick="calcular()">Calcular</button>
+      </div>
+    </div>
+    <div class="bloco">
+      <h3 class="title">Resultado</h3>
+      <div class="resultado">
+        <div class="bloco-resultado final">
+          <span>Valor total final</span>
+          <h2 class="title"></h2>
+        </div>
+        <div class="bloco-resultado investido">
+          <span>Valor total investido</span>
+          <h2 class="title"></h2>
+        </div>
+        <div class="bloco-resultado juros">
+          <span>Total em juros</span>
+          <h2 class="title"></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/mascaras.js"></script>
+</body>
+</html>
